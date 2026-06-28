@@ -2,7 +2,7 @@ import os
 
 
 # Папка с городами
-folder = "img/travel"
+folder = "img/wedding"
 
 
 # Файл куда сохранить результат
@@ -46,7 +46,7 @@ for city in os.listdir(folder):
                 continue
 
 
-            image_path = f"img/travel/{city}/{photo}"
+            image_path = f"img/wedding"
 
 
             html += f"""
