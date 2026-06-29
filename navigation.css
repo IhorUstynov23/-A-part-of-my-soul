@@ -1,0 +1,142 @@
+.memory-menu {
+  position: fixed;
+  right: 35px;
+  bottom: 35px;
+  z-index: 9999;
+}
+
+.memory-toggle {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(0, 0, 0, .1);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  position: relative;
+  transition: .4s;
+
+}
+
+.memory-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* стопка фото */
+.stack-menu {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  margin: auto;
+
+}
+
+.stack-menu img {
+  position: absolute;
+  width: 38px;
+  height: 50px;
+  object-fit: cover;
+  background: rgba(0, 0, 0, .25);
+  padding: 3px;
+  border: 2px solid #ddd;
+  border-radius: px;
+  left: 12px;
+  top: 7px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .25);
+
+}
+
+.stack-menu img:nth-child(1) {
+  transform: rotate(-15deg);
+}
+
+.stack-menu img:nth-child(2) {
+  transform: rotate(0deg);
+}
+
+.stack-menu img:nth-child(3) {
+  transform: rotate(15deg);
+}
+
+/* пункты */
+.memory-item {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  opacity: 0;
+  transform: scale(.2);
+  pointer-events: none;
+  transition: .6s cubic-bezier(.22, .61, .36, 1);
+}
+
+.memory-item a {
+  width: 85px;
+  height: 105px;
+  display: flex;
+  overflow: hidden;
+  background: white;
+  padding: 6px;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+  position: relative;
+}
+
+.memory-1 a {
+  transform: rotate(-12deg);
+}
+
+.memory-2 a {
+  transform: rotate(-5deg);
+}
+
+.memory-3 a {
+  transform: rotate(8deg);
+}
+
+.memory-4 a {
+  transform: rotate(15deg);
+}
+
+.memory-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* открытие */
+.memory-menu.open .memory-item {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.memory-menu.open .memory-1 {
+  transform: translate(-100px, -20px) rotate(-15deg);
+}
+
+.memory-menu.open .memory-2 {
+  transform: translate(-120px, -120px) rotate(15deg);
+}
+
+.memory-menu.open .memory-3 {
+  transform: translate(-100px, -220px) rotate(10deg);
+}
+
+.memory-menu.open .memory-4 {
+  transform: translate(-10px, -280px) rotate(20deg);
+}
+
+.memory-item span {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #ffffff;
+  opacity: 0;
+  transition: .3s;
+}
+
+.memory-item a:hover span {
+  opacity: 1;
+}
