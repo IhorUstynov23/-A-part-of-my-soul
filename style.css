@@ -278,7 +278,7 @@ label.btn {
   display: inline-block;
 }
 
-.page-two {
+.page-two { 
   display: flex;
   flex-direction: column;
   background-image: url('img_web/background-main.webp');
