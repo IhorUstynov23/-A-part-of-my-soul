@@ -281,7 +281,7 @@ label.btn {
 .page-two {
   display: flex;
   flex-direction: column;
-  background-image: url('img/background-main.jpg');
+  background-image: url('img_web/background-main.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -367,7 +367,7 @@ label.btn {
 .page-Card1 {
   display: flex;
   flex-direction: column;
-  background-image: url('img/bgCard1.jpg');
+  background-image: url('img_web/bgCard1.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -558,7 +558,7 @@ label.btn {
 }
 
 .travel {
-  background-image: url('img/bgTravel.jpg');
+  background-image: url('img_web/bgTravel.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -747,7 +747,7 @@ input[type="checkbox"]:checked~.overlay {
 }
 
 .wedding {
-  background-image: url('img/bg280421.jpg');
+  background-image: url('img_web/bg280421.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
