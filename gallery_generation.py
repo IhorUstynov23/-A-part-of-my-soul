@@ -1,52 +1,33 @@
 import os
 
 
-# Папка с городами
-folder = "img/wedding"
+folder = "img_web"
 
-
-# Файл куда сохранить результат
 output = "gallery.html"
 
 
 html = ""
 
 
-# перебираем города
-for city in os.listdir(folder):
-
-    city_path = os.path.join(folder, city)
+for root, dirs, files in os.walk(folder):
 
 
-    # если это не папка - пропускаем
-    if not os.path.isdir(city_path):
-        continue
+    for photo in files:
 
 
-    html += f"""
-<!-- {city} -->
-
-<div class="gallery-scroll">
-
-"""
-
-
-    # перебираем фото внутри города
-    for photo in os.listdir(city_path):
-
-
-        # только изображения
         if photo.lower().endswith(
             (".jpg", ".jpeg", ".png", ".webp")
         ):
 
 
-            # пропускаем фотографии для стопки
             if "stack" in photo:
                 continue
 
 
-            image_path = f"img/wedding"
+            # получаем путь относительно папки img_web
+            full_path = os.path.join(root, photo)
+
+            image_path = full_path.replace("\\", "/")
 
 
             html += f"""
@@ -54,14 +35,7 @@ for city in os.listdir(folder):
 """
 
 
-    html += """
 
-</div>
-
-"""
-
-
-# записываем файл
 with open(output, "w", encoding="utf-8") as file:
     file.write(html)
 
