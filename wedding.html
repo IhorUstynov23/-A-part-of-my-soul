@@ -13,7 +13,8 @@
   <section class="wedding-section">
 
     <div class="heart-container">
-      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/20210428_111228_958.webp" alt=""></div>
+      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/20210428_111228_958_Original.webp" alt="">
+      </div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/DSC_1838.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/DSC_2049.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_0017.webp" alt=""></div>
@@ -22,9 +23,7 @@
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20190727_203518.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20190914_195854.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20200328_111652.webp" alt=""></div>
-      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20210428_095504.webp" alt=""></div>
-      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20210428_095533.webp" alt=""></div>
-      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20210428_100441.webp" alt=""></div>
+      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/DSC_1838.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20210428_100450.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20210428_100453.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_20210428_144915.webp" alt=""></div>
@@ -42,7 +41,7 @@
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_4075.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_4076.webp" alt=""></div>
       <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_4077.webp" alt=""></div>
-      <div class="photo-wrapper"> <img class="photo" src="img_web/wedding/IMG_4271.webp" alt=""></div>
+
     </div>
     <button class="love-text" id="openLetter">
       Forever begins here❤️
@@ -116,9 +115,45 @@
       </a>
     </div>
   </div>
+<div class="viewer" id="viewer">
 
+  <span class="viewer-close" id="viewerClose">
+    ×
+  </span>
+
+
+  <button class="viewer-btn left" id="prevPhoto">
+    ←
+  </button>
+
+
+  <img id="viewerImage">
+
+
+  <button class="viewer-btn right" id="nextPhoto">
+    →
+  </button>
+
+
+  <div class="rotate-buttons">
+
+    <button id="rotateLeft">
+      ↺
+    </button>
+
+
+    <button id="rotateRight">
+      ↻
+    </button>
+
+  </div>
+
+</div>
+  <script src="photo_viewer.js"></script>
   <script src="navigation.js"></script>
   <script src="wedding.js"></script>
+
+
 </body>
 
 </html>

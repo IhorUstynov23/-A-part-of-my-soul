@@ -3,7 +3,7 @@ import json
 
 
 # где лежат фото семьи
-folder = "img_web/family"
+folder = "img_web/family_web"
 
 # куда сохранить данные
 output = "family.json"

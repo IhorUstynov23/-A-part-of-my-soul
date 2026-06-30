@@ -1,83 +1,111 @@
 from PIL import Image, ImageOps
-from pathlib import Path
+from pillow_heif import register_heif_opener
+import os
+
+# включаем поддержку HEIC/HEIF
+register_heif_opener()
 
 
-SOURCE = Path("img")
-OUTPUT = Path("img_web")
+source_folder = "img_web/family"
 
-MAX_WIDTH = 1920
-QUALITY = 85
+output_folder = "img_web/family_web"
 
 
-extensions = [
+# какие форматы обрабатываем
+allowed = (
     ".jpg",
     ".jpeg",
-    ".png"
-]
+    ".png",
+    ".heic",
+    ".heif"
+)
 
 
-def resize_image(file_path):
+for root, dirs, files in os.walk(source_folder):
 
-    try:
-        relative_path = file_path.relative_to(SOURCE)
+    for file in files:
 
-        new_path = OUTPUT / relative_path
-        new_path = new_path.with_suffix(".webp")
 
-        new_path.parent.mkdir(
-            parents=True,
+        # пропускаем видео (Live Photo)
+        if file.lower().endswith(
+            (".mp4", ".mov")
+        ):
+            print("Пропуск видео:", file)
+            continue
+
+
+
+        if not file.lower().endswith(allowed):
+            continue
+
+
+
+        input_path = os.path.join(root, file)
+
+
+
+        # сохраняем такую же структуру папок
+        relative = os.path.relpath(
+            root,
+            source_folder
+        )
+
+
+        save_folder = os.path.join(
+            output_folder,
+            relative
+        )
+
+
+        os.makedirs(
+            save_folder,
             exist_ok=True
         )
 
 
-        img = Image.open(file_path)
 
-        img = ImageOps.exif_transpose(img)
+        filename = os.path.splitext(file)[0]
 
-        if img.width > MAX_WIDTH:
+        output_path = os.path.join(
+            save_folder,
+            filename + ".webp"
+        )
 
-            ratio = MAX_WIDTH / img.width
 
-            new_height = int(
-                img.height * ratio
+
+        try:
+
+
+            img = Image.open(input_path)
+
+
+
+            # исправляет поворот с айфона
+            img = ImageOps.exif_transpose(img)
+
+
+
+            img.save(
+                output_path,
+                "WEBP",
+                quality=85
             )
 
-            img = img.resize(
-                (MAX_WIDTH, new_height),
-                Image.LANCZOS
+
+            print(
+                "Готово:",
+                output_path
             )
 
 
-        img.save(
-            new_path,
-            "WEBP",
-            quality=QUALITY,
-            method=6
-        )
+        except Exception as e:
 
 
-        old_size = file_path.stat().st_size / 1024 / 1024
-        new_size = new_path.stat().st_size / 1024 / 1024
+            print(
+                "Ошибка:",
+                file,
+                e
+            )
 
 
-        print(
-            f"{file_path.name}: "
-            f"{old_size:.1f}MB -> {new_size:.2f}MB"
-        )
-
-
-    except Exception as e:
-        print(
-            f"Ошибка {file_path}: {e}"
-        )
-
-
-
-for file in SOURCE.rglob("*"):
-
-    if file.suffix.lower() in extensions:
-
-        resize_image(file)
-
-
-print("\nГотово!")
+print("Оптимизация завершена")

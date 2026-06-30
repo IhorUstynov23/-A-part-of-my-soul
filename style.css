@@ -933,3 +933,65 @@ input[type="checkbox"]:checked~.overlay {
     top 2.8s cubic-bezier(.22, .61, .36, 1);
 
 }
+
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+.viewer.active {
+  display: flex;
+}
+
+
+.viewer img {
+  max-width: 80%;
+  max-height: 80%;
+  transition: .4s;
+}
+
+
+.viewer-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+
+.viewer-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.left {
+  left: 40px;
+}
+.right {
+  right: 40px;
+}
+
+.rotate-buttons {
+  position: absolute;
+  bottom: 40px;
+}
+.rotate-buttons button {
+  font-size: 15px;
+  margin: 10px;
+  border-radius: 8px;
+}
