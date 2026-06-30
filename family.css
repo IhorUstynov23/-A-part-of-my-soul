@@ -257,11 +257,11 @@
 /* Анимация перелистывания */
 
 .album-content.turn-next {
-  animation: turnNext .8s ease;
+  animation: turnNext 3s ease;
 }
 
 .album-content.turn-prev {
-  animation: turnPrev .8s ease;
+  animation: turnPrev 2s ease;
 }
 
 @keyframes turnNext {
@@ -298,4 +298,55 @@
     transform: rotateY(0deg);
     opacity: 1;
   }
+}
+
+.album-close {
+
+  position: fixed;
+
+  top: 30px;
+
+  right: 40px;
+
+
+  width: 35px;
+
+  height: 35px;
+
+
+  border-radius: 50%;
+
+
+  border: none;
+
+
+  background: rgba(255, 255, 255, .15);
+
+
+  color: white;
+
+
+  font-size: 20px;
+
+
+  cursor: pointer;
+
+
+  z-index: 999;
+
+
+  transition: .4s;
+
+}
+
+
+
+.album-close:hover {
+
+
+  transform: rotate(90deg) scale(1.1);
+
+
+  background: rgba(255, 255, 255, .3);
+
 }
